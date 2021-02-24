@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingClient
@@ -68,18 +67,17 @@ class SaveReminderFragment : BaseFragment() {
             _viewModel.validateAndSaveReminder(reminderDataItem)
 
             if(_viewModel.validateEnteredData(reminderDataItem)){
-                addGeofence()
+                addGeofence(reminderDataItem.id)
             }
-//            TODO: use the user entered reminder details to:
-//             2) save the reminder to the local db
+
         }
     }
 
     @SuppressLint("MissingPermission")
-    private fun addGeofence() {
+    private fun addGeofence(id: String) {
 
         val geofence = Geofence.Builder()
-            .setRequestId(System.currentTimeMillis().toString())
+            .setRequestId(id)
             .setCircularRegion(
                 _viewModel.latitude.value!!,
                 _viewModel.longitude.value!!,
