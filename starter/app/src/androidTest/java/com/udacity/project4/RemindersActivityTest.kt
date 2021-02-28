@@ -152,8 +152,7 @@ class RemindersActivityTest :
         Espresso.onView(withText(R.string.reminder_saved))
             .inRoot(RootMatchers.withDecorView(not(`is`(getActivity(appContext)?.window?.decorView))))
             .check(matches(isDisplayed()))
-//        Espresso.onView(ViewMatchers.withId(com.google.android.material.R.id.snackbar_text))
-//            .check(matches(withText(R.string.whatever_is_your_text)))
+
 
         // Verify reminder is displayed on screen in the reminder list.
         Espresso.onView(withText("NEW RIMINDER")).check(matches(isDisplayed()))
