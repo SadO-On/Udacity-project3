@@ -83,7 +83,7 @@ class SelectLocationFragment : BaseFragment(),OnMapReadyCallback {
     private fun setMapLongClick(map: GoogleMap) {
         map.setOnMapLongClickListener { latLng ->
             map.clear()
-            poiName =""
+            poiName ="UNKNOWN PLACE"
              map.addMarker(
                 MarkerOptions()
                     .position(latLng)
