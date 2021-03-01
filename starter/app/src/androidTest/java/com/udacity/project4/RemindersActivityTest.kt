@@ -153,7 +153,6 @@ class RemindersActivityTest :
             .inRoot(RootMatchers.withDecorView(not(`is`(getActivity(appContext)?.window?.decorView))))
             .check(matches(isDisplayed()))
 
-
         // Verify reminder is displayed on screen in the reminder list.
         Espresso.onView(withText("NEW RIMINDER")).check(matches(isDisplayed()))
         // Make sure the activity is closed before resetting the db.
